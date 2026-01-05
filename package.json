@@ -1,0 +1,31 @@
+{
+  "name": "s3backup",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "GPL-3.0-only",
+  "packageManager": "pnpm@10.27.0",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.962.0",
+    "@topcli/prompts": "^2.4.1",
+    "semver": "^7.7.3",
+    "smol-toml": "^1.6.0",
+    "xdg-basedir": "^5.1.0",
+    "zod": "^4.3.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@types/node": "^25.0.3",
+    "@types/semver": "^7.7.1",
+    "esbuild": "^0.27.2",
+    "eslint": "^9.39.2",
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.51.0"
+  }
+}
