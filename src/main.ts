@@ -1,13 +1,16 @@
 #!/usr/bin/env node
 import { readConfigFile } from "./config";
 import p from "../package.json";
-import { listObjects } from "./s3utils";
+import { downloadObjects, getLatestObjects } from "./process";
 
 export const config = readConfigFile();
 
 async function main() {
   console.error(`Version: ${p.version}`);
-  listObjects("spinup");
+
+  const latest = await getLatestObjects();
+
+  await downloadObjects(latest);
 }
 
 main();

@@ -25,11 +25,12 @@ Configuration
 Create a configuration file at `~/.config/s3backup/config.toml` with the following structure:
 
 ```toml
-bucket    = "your-s3-bucket-name"
-endpoint  = "https://s3.amazonaws.com" # or your custom endpoint
-region    = "us-east-1"
-accessKey = "YOUR_AWS_ACCESS_KEY"
-secretKey = "YOUR_AWS_SECRET_KEY"
+targetPath = "/path/to/your/local/directory"
+bucket     = "your-s3-bucket-name"
+endpoint   = "https://s3.amazonaws.com" # or your custom endpoint
+region     = "us-east-1"
+accessKey  = "YOUR_AWS_ACCESS_KEY"
+secretKey  = "YOUR_AWS_SECRET_KEY"
 ```
 
 ## Usage
