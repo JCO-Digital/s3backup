@@ -20,7 +20,7 @@ cd s3backup
 make
 ```
 
-Configuration
+## Configuration
 
 Create a configuration file at `~/.config/s3backup/config.toml` with the following structure:
 
