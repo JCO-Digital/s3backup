@@ -1,6 +1,6 @@
 # s3backup
 
-`s3backup` is a command-line tool designed to fetch and store the latest backup files from an Amazon S3 bucket locally. It is specifically tailored to work with backups created by the [SpinupWP](https://spinupwp.com/) backup system, providing an extra layer of redundancy by keeping a local copy of your most recent backups.
+`s3backup` is a command-line tool designed to fetch and store the latest backup files from an S3 bucket to store locally. It is specifically tailored to work with backups created by the [SpinupWP](https://spinupwp.com/doc/site-backups/) backup system, providing an extra layer of redundancy by keeping a local copy of your most recent backups.
 
 ## Features
 
@@ -28,7 +28,7 @@ Create a configuration file at `~/.config/s3backup/config.toml` with the followi
 targetPath = "/path/to/your/local/directory"
 bucket     = "your-s3-bucket-name"
 endpoint   = "https://s3.amazonaws.com" # or your custom endpoint
-region     = "us-east-1"
+region     = "eu-north-1"
 accessKey  = "YOUR_AWS_ACCESS_KEY"
 secretKey  = "YOUR_AWS_SECRET_KEY"
 ```
