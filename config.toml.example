@@ -1,0 +1,7 @@
+endpoint = "https://nbg1.your-objectstorage.com"
+region = "us-east-1"
+access_key = "YOUR_ACCESS_KEY"
+secret_key = "YOUR_SECRET_KEY"
+bucket = "my-backups"
+target_path = "./backups"
+max_age = 7
