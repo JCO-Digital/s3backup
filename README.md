@@ -18,7 +18,7 @@ A Go-based CLI utility for managing and downloading backups from S3-compatible s
 Ensure you have Go 1.21 or later installed.
 
 ```bash
-git clone https://github.com/niklas/s3backup
+git clone https://github.com/JCO-Digital/s3backup
 cd s3backup
 make build
 ```
