@@ -10,10 +10,12 @@ import (
 )
 
 var cfgFile string
+var Version = "0.0.0"
 
 var rootCmd = &cobra.Command{
-	Use:   "s3backup",
-	Short: "A utility to download latest backups from S3-compatible storage",
+	Use:     "s3backup",
+	Version: Version,
+	Short:   "A utility to download latest backups from S3-compatible storage",
 	Long: `s3backup is a CLI tool designed to manage and download the latest backups
 from S3-compatible object storage, specifically optimized for Hetzner Object Storage.`,
 }

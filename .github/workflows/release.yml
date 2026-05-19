@@ -1,0 +1,52 @@
+name: s3backup build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required to create tags and releases
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # foonver needs history to determine the next version
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: 1.25.x
+
+      - name: Run Tests
+        run: make test
+
+      - name: Verify Build
+        # This ensures the code compiles before we commit any version bumps
+        run: make build
+
+      - name: Run foonver
+        id: foonver
+        uses: foonly/foonver@main
+        with:
+          command: "auto"
+          changelog: "true"
+          push: "true"
+
+      - name: Build Release Binary
+        # Re-build now that the new tag exists, so the version is embedded correctly
+        if: steps.foonver.outputs.is_bumped == 'true'
+        run: make build VERSION=${{ steps.foonver.outputs.version }}
+
+      - name: Create GitHub Release
+        if: steps.foonver.outputs.is_bumped == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.foonver.outputs.version }}
+          name: Release ${{ steps.foonver.outputs.version }}
+          body: ${{ steps.foonver.outputs.release_notes }}
+          draft: false
+          prerelease: false
+          files: "bin/s3backup"

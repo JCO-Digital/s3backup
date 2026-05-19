@@ -1,5 +1,7 @@
 # S3 Backup Utility
 
+Version: 0.0.0
+
 A Go-based CLI utility for managing and downloading backups from S3-compatible storage (specifically optimized for Hetzner Object Storage). This tool automatically identifies the latest backups for various sites, manages local disk space, and provides both interactive and non-interactive download modes.
 
 ## Features
@@ -18,8 +20,10 @@ Ensure you have Go 1.21 or later installed.
 ```bash
 git clone https://github.com/niklas/s3backup
 cd s3backup
-go build -o s3backup main.go
+make build
 ```
+
+The binary will be available in `./bin/s3backup`.
 
 ## Configuration
 
@@ -45,7 +49,7 @@ keep_free = "100G" # Keep at least 100GB free on the target drive (supports "10%
 List all detected sites in the S3 bucket and their latest backup timestamps:
 
 ```bash
-./s3backup list
+./bin/s3backup list
 ```
 
 ### Download Backups
@@ -53,19 +57,19 @@ List all detected sites in the S3 bucket and their latest backup timestamps:
 Download the latest backups for a specific site:
 
 ```bash
-./s3backup download site-name
+./bin/s3backup download site-name
 ```
 
 Download all latest backups (non-interactive):
 
 ```bash
-./s3backup download --all
+./bin/s3backup download --all
 ```
 
 Run interactively to select sites:
 
 ```bash
-./s3backup download
+./bin/s3backup download
 ```
 
 ### Check Local Status
@@ -73,7 +77,7 @@ Run interactively to select sites:
 View information about local backups and disk space:
 
 ```bash
-./s3backup status
+./bin/s3backup status
 ```
 
 ## Space Management Logic
