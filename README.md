@@ -1,6 +1,6 @@
 # S3 Backup Utility
 
-Version: 1.2.0
+Version: 1.2.1
 
 A Go-based CLI utility for managing and downloading backups from S3-compatible storage (specifically optimized for Hetzner Object Storage). This tool automatically identifies the latest backups for various sites, manages local disk space, and provides both interactive and non-interactive download modes.
 

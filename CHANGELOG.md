@@ -1,6 +1,12 @@
 # Changelog
 
-## 1.2.0 (2026-05-20)
+### 1.2.1 (2026-05-20)
+
+#### Build System
+
+- makefile: derive version from git tags (72ac902)
+
+## v1.2.0 (2026-05-20)
 
 #### Features
 
