@@ -25,7 +25,7 @@ jobs:
 
       - name: Verify Build
         # This ensures the code compiles before we commit any version bumps
-        run: make build
+        run: go build ./...
 
       - name: Run foonver
         id: foonver
