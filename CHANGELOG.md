@@ -1,6 +1,12 @@
 # Changelog
 
-### 1.2.1 (2026-05-20)
+### 1.2.2 (2026-05-20)
+
+#### Continuous Integration
+
+- github: update build command in release workflow (cc11f77)
+
+### v1.2.1 (2026-05-20)
 
 #### Build System
 
