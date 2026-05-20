@@ -54,10 +54,11 @@ List all detected sites in the S3 bucket and their latest backup timestamps:
 
 ### Download Backups
 
-Download the latest backups for a specific site:
+Download the latest backups for one or more specific sites:
 
 ```bash
 ./bin/s3backup download site-name
+./bin/s3backup download site-one site-two
 ```
 
 Download all latest backups (non-interactive):

@@ -14,8 +14,8 @@ import (
 var downloadAll bool
 
 var downloadCmd = &cobra.Command{
-	Use:   "download [site]",
-	Short: "Download latest backups for a site or all sites",
+	Use:   "download [site...]",
+	Short: "Download latest backups for one or more sites, or all sites",
 	Run: func(cmd *cobra.Command, args []string) {
 		cfg, err := config.LoadConfig()
 		cobra.CheckErr(err)
@@ -88,16 +88,32 @@ var downloadCmd = &cobra.Command{
 		}
 
 		if len(args) > 0 {
-			siteName := args[0]
-			for _, site := range sites {
-				if site.Name == siteName {
-					err = client.EnsureFreeSpace(context.Background(), site.TotalSize())
-					cobra.CheckErr(err)
-					downloadSite(client, site)
-					return
+			selectedSites := []backup.Site{}
+			for _, arg := range args {
+				found := false
+				for _, site := range sites {
+					if site.Name == arg {
+						selectedSites = append(selectedSites, site)
+						found = true
+						break
+					}
+				}
+				if !found {
+					cobra.CheckErr(fmt.Errorf("site %s not found", arg))
 				}
 			}
-			cobra.CheckErr(fmt.Errorf("site %s not found", siteName))
+
+			var totalNeeded int64
+			for _, site := range selectedSites {
+				totalNeeded += site.TotalSize()
+			}
+
+			err = client.EnsureFreeSpace(context.Background(), totalNeeded)
+			cobra.CheckErr(err)
+
+			for _, site := range selectedSites {
+				downloadSite(client, site)
+			}
 			return
 		}
 
