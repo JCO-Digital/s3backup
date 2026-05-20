@@ -9,7 +9,7 @@ all: build
 
 build: $(BINARY_PATH)
 
-VERSION?=0.0.0
+VERSION?=$(shell git describe --tags --abbrev=0 2>/dev/null | sed 's/^v//' || echo "0.0.0")
 LDFLAGS=-X github.com/niklas/s3backup/cmd.Version=$(VERSION)
 
 $(BINARY_PATH): $(GO_FILES)
