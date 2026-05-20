@@ -1,6 +1,21 @@
 # Changelog
 
-## 1.1.0
+## 1.2.0 (2026-05-20)
+
+#### Features
+
+- download: allow downloading multiple sites at once (c780e0f)
+
+#### Documentation
+
+- update version to 1.1.0 in README (82d81b6)
+- readme: update repository clone URL (d927b94)
+
+#### Continuous Integration
+
+- github: configure version sync for README in release workflow (fec21bd)
+
+## v1.1.0 (2026-05-19)
 
 #### Features
 
